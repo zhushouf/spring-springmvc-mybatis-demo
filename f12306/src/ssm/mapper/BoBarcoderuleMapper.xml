@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ssm.mapper.BoBarcoderuleMapper" >
+  <resultMap id="BaseResultMap" type="ssm.po.BoBarcoderule" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="ext1" property="ext1" jdbcType="VARCHAR" />
+    <result column="ext2" property="ext2" jdbcType="VARCHAR" />
+    <result column="ext3" property="ext3" jdbcType="VARCHAR" />
+    <result column="opttime" property="opttime" jdbcType="TIMESTAMP" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="barcodeheight" property="barcodeheight" jdbcType="INTEGER" />
+    <result column="barcodetype" property="barcodetype" jdbcType="VARCHAR" />
+    <result column="barcodewidth" property="barcodewidth" jdbcType="INTEGER" />
+    <result column="corrlevel" property="corrlevel" jdbcType="VARCHAR" />
+    <result column="documenttype" property="documenttype" jdbcType="VARCHAR" />
+    <result column="dssignid" property="dssignid" jdbcType="VARCHAR" />
+    <result column="heightmovesize" property="heightmovesize" jdbcType="INTEGER" />
+    <result column="iscontaincertchain" property="iscontaincertchain" jdbcType="VARCHAR" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="locationtype" property="locationtype" jdbcType="VARCHAR" />
+    <result column="movesize" property="movesize" jdbcType="INTEGER" />
+    <result column="movetype" property="movetype" jdbcType="VARCHAR" />
+    <result column="orgflag" property="orgflag" jdbcType="VARCHAR" />
+    <result column="orgid" property="orgid" jdbcType="VARCHAR" />
+    <result column="pageno" property="pageno" jdbcType="INTEGER" />
+    <result column="pdftemplateid" property="pdftemplateid" jdbcType="VARCHAR" />
+    <result column="posb" property="posb" jdbcType="REAL" />
+    <result column="posl" property="posl" jdbcType="REAL" />
+    <result column="posr" property="posr" jdbcType="REAL" />
+    <result column="post" property="post" jdbcType="REAL" />
+    <result column="rulename" property="rulename" jdbcType="VARCHAR" />
+    <result column="rulenum" property="rulenum" jdbcType="VARCHAR" />
+    <result column="searchorder" property="searchorder" jdbcType="VARCHAR" />
+    <result column="serverbarcodeid" property="serverbarcodeid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="tssignid" property="tssignid" jdbcType="VARCHAR" />
+    <result column="usedrule" property="usedrule" jdbcType="VARCHAR" />
+    <result column="ext4" property="ext4" jdbcType="VARCHAR" />
+    <result column="ext5" property="ext5" jdbcType="VARCHAR" />
+    <result column="ext6" property="ext6" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ext1, ext2, ext3, opttime, userid, barcodeheight, barcodetype, barcodewidth, 
+    corrlevel, documenttype, dssignid, heightmovesize, iscontaincertchain, keyword, locationtype, 
+    movesize, movetype, orgflag, orgid, pageno, pdftemplateid, posb, posl, posr, post, 
+    rulename, rulenum, searchorder, serverbarcodeid, status, tssignid, usedrule, ext4, 
+    ext5, ext6
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bo_barcoderule
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bo_barcoderule
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="ssm.po.BoBarcoderule" >
+    insert into bo_barcoderule (id, ext1, ext2, 
+      ext3, opttime, userid, 
+      barcodeheight, barcodetype, barcodewidth, 
+      corrlevel, documenttype, dssignid, 
+      heightmovesize, iscontaincertchain, keyword, 
+      locationtype, movesize, movetype, 
+      orgflag, orgid, pageno, 
+      pdftemplateid, posb, posl, 
+      posr, post, rulename, rulenum, 
+      searchorder, serverbarcodeid, status, 
+      tssignid, usedrule, ext4, 
+      ext5, ext6)
+    values (#{id,jdbcType=VARCHAR}, #{ext1,jdbcType=VARCHAR}, #{ext2,jdbcType=VARCHAR}, 
+      #{ext3,jdbcType=VARCHAR}, #{opttime,jdbcType=TIMESTAMP}, #{userid,jdbcType=VARCHAR}, 
+      #{barcodeheight,jdbcType=INTEGER}, #{barcodetype,jdbcType=VARCHAR}, #{barcodewidth,jdbcType=INTEGER}, 
+      #{corrlevel,jdbcType=VARCHAR}, #{documenttype,jdbcType=VARCHAR}, #{dssignid,jdbcType=VARCHAR}, 
+      #{heightmovesize,jdbcType=INTEGER}, #{iscontaincertchain,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, 
+      #{locationtype,jdbcType=VARCHAR}, #{movesize,jdbcType=INTEGER}, #{movetype,jdbcType=VARCHAR}, 
+      #{orgflag,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, #{pageno,jdbcType=INTEGER}, 
+      #{pdftemplateid,jdbcType=VARCHAR}, #{posb,jdbcType=REAL}, #{posl,jdbcType=REAL}, 
+      #{posr,jdbcType=REAL}, #{post,jdbcType=REAL}, #{rulename,jdbcType=VARCHAR}, #{rulenum,jdbcType=VARCHAR}, 
+      #{searchorder,jdbcType=VARCHAR}, #{serverbarcodeid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{tssignid,jdbcType=VARCHAR}, #{usedrule,jdbcType=VARCHAR}, #{ext4,jdbcType=VARCHAR}, 
+      #{ext5,jdbcType=VARCHAR}, #{ext6,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="ssm.po.BoBarcoderule" >
+    insert into bo_barcoderule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ext1 != null" >
+        ext1,
+      </if>
+      <if test="ext2 != null" >
+        ext2,
+      </if>
+      <if test="ext3 != null" >
+        ext3,
+      </if>
+      <if test="opttime != null" >
+        opttime,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="barcodeheight != null" >
+        barcodeheight,
+      </if>
+      <if test="barcodetype != null" >
+        barcodetype,
+      </if>
+      <if test="barcodewidth != null" >
+        barcodewidth,
+      </if>
+      <if test="corrlevel != null" >
+        corrlevel,
+      </if>
+      <if test="documenttype != null" >
+        documenttype,
+      </if>
+      <if test="dssignid != null" >
+        dssignid,
+      </if>
+      <if test="heightmovesize != null" >
+        heightmovesize,
+      </if>
+      <if test="iscontaincertchain != null" >
+        iscontaincertchain,
+      </if>
+      <if test="keyword != null" >
+        keyword,
+      </if>
+      <if test="locationtype != null" >
+        locationtype,
+      </if>
+      <if test="movesize != null" >
+        movesize,
+      </if>
+      <if test="movetype != null" >
+        movetype,
+      </if>
+      <if test="orgflag != null" >
+        orgflag,
+      </if>
+      <if test="orgid != null" >
+        orgid,
+      </if>
+      <if test="pageno != null" >
+        pageno,
+      </if>
+      <if test="pdftemplateid != null" >
+        pdftemplateid,
+      </if>
+      <if test="posb != null" >
+        posb,
+      </if>
+      <if test="posl != null" >
+        posl,
+      </if>
+      <if test="posr != null" >
+        posr,
+      </if>
+      <if test="post != null" >
+        post,
+      </if>
+      <if test="rulename != null" >
+        rulename,
+      </if>
+      <if test="rulenum != null" >
+        rulenum,
+      </if>
+      <if test="searchorder != null" >
+        searchorder,
+      </if>
+      <if test="serverbarcodeid != null" >
+        serverbarcodeid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="tssignid != null" >
+        tssignid,
+      </if>
+      <if test="usedrule != null" >
+        usedrule,
+      </if>
+      <if test="ext4 != null" >
+        ext4,
+      </if>
+      <if test="ext5 != null" >
+        ext5,
+      </if>
+      <if test="ext6 != null" >
+        ext6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null" >
+        #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        #{ext3,jdbcType=VARCHAR},
+      </if>
+      <if test="opttime != null" >
+        #{opttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeheight != null" >
+        #{barcodeheight,jdbcType=INTEGER},
+      </if>
+      <if test="barcodetype != null" >
+        #{barcodetype,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodewidth != null" >
+        #{barcodewidth,jdbcType=INTEGER},
+      </if>
+      <if test="corrlevel != null" >
+        #{corrlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="documenttype != null" >
+        #{documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="dssignid != null" >
+        #{dssignid,jdbcType=VARCHAR},
+      </if>
+      <if test="heightmovesize != null" >
+        #{heightmovesize,jdbcType=INTEGER},
+      </if>
+      <if test="iscontaincertchain != null" >
+        #{iscontaincertchain,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="locationtype != null" >
+        #{locationtype,jdbcType=VARCHAR},
+      </if>
+      <if test="movesize != null" >
+        #{movesize,jdbcType=INTEGER},
+      </if>
+      <if test="movetype != null" >
+        #{movetype,jdbcType=VARCHAR},
+      </if>
+      <if test="orgflag != null" >
+        #{orgflag,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="pageno != null" >
+        #{pageno,jdbcType=INTEGER},
+      </if>
+      <if test="pdftemplateid != null" >
+        #{pdftemplateid,jdbcType=VARCHAR},
+      </if>
+      <if test="posb != null" >
+        #{posb,jdbcType=REAL},
+      </if>
+      <if test="posl != null" >
+        #{posl,jdbcType=REAL},
+      </if>
+      <if test="posr != null" >
+        #{posr,jdbcType=REAL},
+      </if>
+      <if test="post != null" >
+        #{post,jdbcType=REAL},
+      </if>
+      <if test="rulename != null" >
+        #{rulename,jdbcType=VARCHAR},
+      </if>
+      <if test="rulenum != null" >
+        #{rulenum,jdbcType=VARCHAR},
+      </if>
+      <if test="searchorder != null" >
+        #{searchorder,jdbcType=VARCHAR},
+      </if>
+      <if test="serverbarcodeid != null" >
+        #{serverbarcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="tssignid != null" >
+        #{tssignid,jdbcType=VARCHAR},
+      </if>
+      <if test="usedrule != null" >
+        #{usedrule,jdbcType=VARCHAR},
+      </if>
+      <if test="ext4 != null" >
+        #{ext4,jdbcType=VARCHAR},
+      </if>
+      <if test="ext5 != null" >
+        #{ext5,jdbcType=VARCHAR},
+      </if>
+      <if test="ext6 != null" >
+        #{ext6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="ssm.po.BoBarcoderule" >
+    update bo_barcoderule
+    <set >
+      <if test="ext1 != null" >
+        ext1 = #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null" >
+        ext2 = #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        ext3 = #{ext3,jdbcType=VARCHAR},
+      </if>
+      <if test="opttime != null" >
+        opttime = #{opttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeheight != null" >
+        barcodeheight = #{barcodeheight,jdbcType=INTEGER},
+      </if>
+      <if test="barcodetype != null" >
+        barcodetype = #{barcodetype,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodewidth != null" >
+        barcodewidth = #{barcodewidth,jdbcType=INTEGER},
+      </if>
+      <if test="corrlevel != null" >
+        corrlevel = #{corrlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="documenttype != null" >
+        documenttype = #{documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="dssignid != null" >
+        dssignid = #{dssignid,jdbcType=VARCHAR},
+      </if>
+      <if test="heightmovesize != null" >
+        heightmovesize = #{heightmovesize,jdbcType=INTEGER},
+      </if>
+      <if test="iscontaincertchain != null" >
+        iscontaincertchain = #{iscontaincertchain,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="locationtype != null" >
+        locationtype = #{locationtype,jdbcType=VARCHAR},
+      </if>
+      <if test="movesize != null" >
+        movesize = #{movesize,jdbcType=INTEGER},
+      </if>
+      <if test="movetype != null" >
+        movetype = #{movetype,jdbcType=VARCHAR},
+      </if>
+      <if test="orgflag != null" >
+        orgflag = #{orgflag,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null" >
+        orgid = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="pageno != null" >
+        pageno = #{pageno,jdbcType=INTEGER},
+      </if>
+      <if test="pdftemplateid != null" >
+        pdftemplateid = #{pdftemplateid,jdbcType=VARCHAR},
+      </if>
+      <if test="posb != null" >
+        posb = #{posb,jdbcType=REAL},
+      </if>
+      <if test="posl != null" >
+        posl = #{posl,jdbcType=REAL},
+      </if>
+      <if test="posr != null" >
+        posr = #{posr,jdbcType=REAL},
+      </if>
+      <if test="post != null" >
+        post = #{post,jdbcType=REAL},
+      </if>
+      <if test="rulename != null" >
+        rulename = #{rulename,jdbcType=VARCHAR},
+      </if>
+      <if test="rulenum != null" >
+        rulenum = #{rulenum,jdbcType=VARCHAR},
+      </if>
+      <if test="searchorder != null" >
+        searchorder = #{searchorder,jdbcType=VARCHAR},
+      </if>
+      <if test="serverbarcodeid != null" >
+        serverbarcodeid = #{serverbarcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="tssignid != null" >
+        tssignid = #{tssignid,jdbcType=VARCHAR},
+      </if>
+      <if test="usedrule != null" >
+        usedrule = #{usedrule,jdbcType=VARCHAR},
+      </if>
+      <if test="ext4 != null" >
+        ext4 = #{ext4,jdbcType=VARCHAR},
+      </if>
+      <if test="ext5 != null" >
+        ext5 = #{ext5,jdbcType=VARCHAR},
+      </if>
+      <if test="ext6 != null" >
+        ext6 = #{ext6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ssm.po.BoBarcoderule" >
+    update bo_barcoderule
+    set ext1 = #{ext1,jdbcType=VARCHAR},
+      ext2 = #{ext2,jdbcType=VARCHAR},
+      ext3 = #{ext3,jdbcType=VARCHAR},
+      opttime = #{opttime,jdbcType=TIMESTAMP},
+      userid = #{userid,jdbcType=VARCHAR},
+      barcodeheight = #{barcodeheight,jdbcType=INTEGER},
+      barcodetype = #{barcodetype,jdbcType=VARCHAR},
+      barcodewidth = #{barcodewidth,jdbcType=INTEGER},
+      corrlevel = #{corrlevel,jdbcType=VARCHAR},
+      documenttype = #{documenttype,jdbcType=VARCHAR},
+      dssignid = #{dssignid,jdbcType=VARCHAR},
+      heightmovesize = #{heightmovesize,jdbcType=INTEGER},
+      iscontaincertchain = #{iscontaincertchain,jdbcType=VARCHAR},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      locationtype = #{locationtype,jdbcType=VARCHAR},
+      movesize = #{movesize,jdbcType=INTEGER},
+      movetype = #{movetype,jdbcType=VARCHAR},
+      orgflag = #{orgflag,jdbcType=VARCHAR},
+      orgid = #{orgid,jdbcType=VARCHAR},
+      pageno = #{pageno,jdbcType=INTEGER},
+      pdftemplateid = #{pdftemplateid,jdbcType=VARCHAR},
+      posb = #{posb,jdbcType=REAL},
+      posl = #{posl,jdbcType=REAL},
+      posr = #{posr,jdbcType=REAL},
+      post = #{post,jdbcType=REAL},
+      rulename = #{rulename,jdbcType=VARCHAR},
+      rulenum = #{rulenum,jdbcType=VARCHAR},
+      searchorder = #{searchorder,jdbcType=VARCHAR},
+      serverbarcodeid = #{serverbarcodeid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      tssignid = #{tssignid,jdbcType=VARCHAR},
+      usedrule = #{usedrule,jdbcType=VARCHAR},
+      ext4 = #{ext4,jdbcType=VARCHAR},
+      ext5 = #{ext5,jdbcType=VARCHAR},
+      ext6 = #{ext6,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
